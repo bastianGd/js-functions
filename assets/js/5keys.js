@@ -1,26 +1,27 @@
 //Función para cambiar el color de los div
-function changeDivBgColors(color) {
-  //obtiene id del la caja 'box'
-  const getBox = document.getElementById("key");
-  //Cambia el color del background y pasa el color como argumento.
-  getBox.style.backgroundColor = color;
+function changeDivBgColors(element, color) {
+  element.style.backgroundColor = color;
 }
-//Función para crear el nuevo elemento
+
+//Función para crear el nuevo div
 function newDivElement(color) {
   const newDiv = document.createElement("div");
   newDiv.style.backgroundColor = color;
-  newDiv.setAttribute("class", "dynamic-div")
+  newDiv.classList.add("dynamic-div")
   document.body.appendChild(newDiv);
 }
+
 //cambio color para key
 document.addEventListener("keydown", function(event) {
-  if (document.getElementById("key")) {
+  let keyElement = document.getElementById("key");
+  
+  if (keyElement) {
     if (event.key === "a") {
-      changeDivBgColors("pink");
+      changeDivBgColors(keyElement, "pink");
     } else if (event.key === "s") {
-      changeDivBgColors("orange");
+      changeDivBgColors(keyElement, "orange");
     } else if (event.key === "d") {
-      changeDivBgColors("lightblue");
+      changeDivBgColors(keyElement,"lightblue");
     } else if (event.key === "q") {
       newDivElement("purple");
     } else if (event.key === "w") {
